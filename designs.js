@@ -8,27 +8,19 @@ var color = document.getElementById("colorPicker").value;
 sizepicker.onsubmit = function(event){
     event.preventDefault();
     makeGrid();
+
 }
 
+function fillcell(){
+    cell.style.backgroundColor= color;
+}
 
-
-
-function  makeGrid(){
-    let r=0;
-    while(r<height.value){
+function makeGrid(){
+    for(let r=0;r<height.value;r++){
         const row=canvas.insertRow(r);
-        r++;
-        let c=0;
-        while(c<width.value){
+        for(let c=0; c<width.value;c++){
             const cell= row.insertCell(c);
-            c++;
+            // cell.addEventlistener("click", fillcell);
         }
     }
-};
-
-
-
-var cel = document.getElementsByTagName("td");
-cel.addEventListener("click", function fillcolor(event){
-    event.target.style.backgroundColor = color;
-    }
+}
