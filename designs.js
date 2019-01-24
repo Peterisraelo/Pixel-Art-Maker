@@ -1,8 +1,9 @@
+
 var canvas = document.getElementById("pixelCanvas");
 var height = document.getElementById("inputHeight");
 var width= document.getElementById("inputWidth");
 var sizepicker = document.getElementById("sizePicker");
-var color = document.getElementById("colorPicker");
+var color = document.getElementById("colorPicker").value;
 
 sizepicker.onsubmit = function(event){
     event.preventDefault();
@@ -23,5 +24,11 @@ function  makeGrid(){
             c++;
         }
     }
-}
+};
 
+
+
+var cel = document.getElementsByTagName("td");
+cel.addEventListener("click", function fillcolor(event){
+    event.target.style.backgroundColor = color;
+    }
