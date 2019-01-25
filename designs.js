@@ -4,11 +4,12 @@ var height = document.getElementById("inputHeight");
 var width = document.getElementById("inputWidth");
 
 var sizepicker = document.getElementById("sizePicker");
-var color = document.getElementById("colorPicker").value;
+var color = document.getElementById("colorPicker");
 
 sizepicker.onsubmit = function(event) {
   event.preventDefault();
   makeGrid();
+  fillsquare();
 };
 
 function makeGrid() {
@@ -41,10 +42,9 @@ function makeGrid() {
   
   // since cells is an array of <td>'s we need let's loop through it an add event listeners to every single one.
   for (let cell of cells){
-    cell.addEventListener('click', function(event) {
-      // Now this event listener returns an event to get the element we have to use event.target
-      const td = event.target
-      td.style.backgroundColor = color;
-    })
+    cell.onclick= function(){
+      cell.style.backgroundColor= color.value;
+    }
   }
 }
+
